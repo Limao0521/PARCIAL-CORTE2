@@ -1,0 +1,441 @@
+:root{
+    --green-c: #1CA45C;
+    --darkgreen-c: #007A42;
+    --pasta-c:  #EEBE02;
+    --blue-c: #1E2130;
+}
+
+/** Estilos generales **/
+
+html{
+    font-family: "Cinzel", serif;
+    scroll-behavior: smooth;
+}
+
+body{
+    margin:0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+a:visited{
+    color: inherit;
+}
+
+li{
+    list-style: none;
+}
+
+p{
+    font-size: 1.1rem;
+}
+
+h1{
+    font-size: 2.4rem;
+}
+h2{
+    font-size: 2rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+h4{
+    font-size: 1.6rem;
+}
+h5{
+    font-size: 1.4rem;
+}
+h6{
+    font-size: 1.2rem;
+}
+
+/*Enlaces*/
+.cta-main{
+    background-color: #556B2F;
+    padding: 0.5rem 1rem;
+    color: white;
+    font-size: bold;
+    border-radius: 4px;
+}
+
+/** HEADER restaurante **/
+
+header.main-header{
+    position: relative;
+    top:0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.header-wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: transparent;
+    z-index: 999;
+}
+.wrap-logo-header{
+    display: flex;
+    align-items: center;
+    top: 50%;
+    flex-basis:15%;
+    padding-top: 0.1px;
+}
+.logo{
+    width: 15vw;
+    height: 18vh;
+}
+
+/**Menu header**/
+.nav-header{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.wrap-nav-header{
+    display: flex;
+    flex-basis: 50%;
+}
+
+ul.main-menu{
+    display: flex;
+    width: 100%;
+    z-index: 99;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+li.menu-item{
+    margin: 0.75rem;
+    display: flex;
+}
+
+li.menu-item a{
+    padding: 0.5rem 1rem;
+    color: white;
+}
+
+li.menu-item a:hover{
+    color: var(--pasta-c);
+}
+
+i.toggle-menu img{
+    width: 27px;
+    z-index: 99;
+}
+
+i.toggle-menu{
+    display: none;
+    background-color: white;
+    border: none;
+    z-index: 9999;
+}
+
+input#check{
+    display: none;
+}
+
+@media (min-width: 880px){
+    .header-wrap{
+        padding: 0.5rem 0rem;
+    }
+}
+@media (max-width: 768px){
+    header.main-header{
+        margin-bottom: 4rem;
+    }
+    .header-wrap{
+        position: fixed;
+        width: 100%;
+        background-color: white;
+        padding: 0;
+        top: 0;
+        z-index: 9999;
+        height: 60px;
+    }
+    .wrap-logo-header{
+        position: fixed;
+        z-index: 999;
+        top: 1%;
+        left: 2%;
+    }
+    .logo, li.menu-item a{
+        color: var(--blue-c);
+    }
+    .logo{
+        height: 50px;
+        width: 50px;
+    }
+
+    i.toggle-menu{
+        display: flex;
+    }
+    ul.main-menu{
+        display: none;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        position: fixed;
+        background-color: white;
+    }
+    label.checkbtn{
+        position: fixed;
+        right: 3%;
+        top: 3%;
+        z-index: 9999;
+        cursor: pointer;
+    }
+    #check:checked ~ ul{
+        display: flex;
+        z-index: 9;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        top: 0;
+        font-size: 2rem;
+    }
+    button.agregar-principal{
+        display: none;
+    }
+    #check:checked ~ button.agregar-principal{
+        display: flex;
+        z-index: 9;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        height: 3.5vh;
+        top: 15px;
+        margin-left: 85vw;
+
+        font-size: 2rem;
+    } 
+}
+
+/* Hero Section home-page*/
+
+.wrap-header-hero{
+    background: linear-gradient(to bottom, rgb(0 0 0 / 0.75), rgb(0 0 0 / 0.5)), url(img/heroImage.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.hero-home-page{
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrap-hero-home-page{
+    color: white;
+    text-align: center;
+    width: 50%;
+}
+
+.wrap-hero-home-page p{
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px){
+    .wrap-hero-home-page{
+        width: 100%;
+        padding: 1rem
+    }
+}
+
+/* Presentation home section*/
+.presentation-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background: linear-gradient(to bottom, rgb(0 0 0 / 0.75), rgb(0 0 0 / 0.5)), url(img/Firefly\ Quiero\ que\ generes\ una\ imagen\ para\ un\ restaurante\ de\ pastas\,\ la\ imagen\ debe\ verse\ realista.\ .jpg);
+    flex-direction: column;
+    height: 100vh;
+}
+.developers{
+    background-color: #FAF3E0;
+}
+.developers h1{
+    color: black;
+    text-align: center;
+    margin: 0;
+    height: 50px;
+}
+.wrap-section-cards{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 90vh;
+    background-color: transparent;
+    gap: 5rem;
+}
+.card{
+    position: relative;
+    width: 350px;
+    height: 410px;
+}
+.card .face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.card .front{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px black;
+}
+.card .front img{
+    position: obsolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.card .front h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    color: white;
+    background: rgba(0, 0, 0, .4);
+    text-align: center;
+}
+.card .back{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3 15 54);
+    padding: 15px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px black;
+}
+.card .back .link{
+    border-top: solid 1px white;
+    height: 50px;
+    line-height: 50px;
+}
+.card .back .link a{
+    color: white;
+}
+.card .back h3{
+    font-size: 30px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+.card .back p{
+    letter-spacing: 1px;
+}
+.card:hover .front{
+    transform: perspective(600px) rotateY(180deg);
+}
+.card:hover .back{
+    transform: perspective(600px) rotateY(360deg);
+}
+@media(max-width: 768px){
+    .presentation-cards{
+        height: 220vh;
+    }
+}
+
+
+/*Footer*/
+
+
+footer{
+    background-color: #FAF3E0;
+    color: var(--blue-c);
+}
+
+footer ul{
+    padding: 0;
+
+}
+
+.wrap-footer{
+    display: grid;
+    grid-template-columns: 30% 15% 15% 20%;
+    column-gap: 20%;
+    padding: 0.5rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    margin: 0;
+}
+
+element-footer h5{
+    margin: 1rem 0;
+}
+
+.text-element-footer{
+    line-height: 2;
+}
+
+.text-element-footer li a{
+    color: var(--pasta-c);
+}
+
+.rs-element-footer ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rs-element-footer img{
+    width: 50px;
+}
+
+.rs-element-footer li{
+    margin-right: 1rem 1rem;
+}
+
+.footer-credentials{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    color: var(--green-c);
+    font-size: 0.9rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.legal-credentials ul{
+    display: flex;
+}
+
+.legal-credentials ul li{
+    padding-right: 1rem;
+}
+
+.legal-credentials ul li a{
+    color: var(--green-c);
+}
+@media (max-width: 768px){
+    .wrap-footer{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media (max-width: 480){
+    .wrap-footer{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
+@media (max-width: 320px){
+    .footer-credentials{
+        flex-flow: column;
+    }
+}
+

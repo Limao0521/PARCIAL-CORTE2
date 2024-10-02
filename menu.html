@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Pasta di Nonna</title>
+    <link rel="stylesheet" href="menuStyle.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
+
+    <script src="function.js" defer></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-wrap">
+            <div class="wrap-logo-header">
+              <a class="logo-header">
+                <img class = "logo" src="img/logoSVG.svg">
+              </a>
+            </div>
+            <div class="wrap-nav-header">
+              <nav class="nav-header">
+                <input type="checkbox" id="check">
+                <label for="check" class="checkbtn">
+                  <i class="toggle-menu">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDM4NCAzODQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0ibTM2OCAxNTQuNjY3OTY5aC0zNTJjLTguODMyMDMxIDAtMTYtNy4xNjc5NjktMTYtMTZzNy4xNjc5NjktMTYgMTYtMTZoMzUyYzguODMyMDMxIDAgMTYgNy4xNjc5NjkgMTYgMTZzLTcuMTY3OTY5IDE2LTE2IDE2em0wIDAiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiPjwvcGF0aD48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGQ9Im0zNjggMzJoLTM1MmMtOC44MzIwMzEgMC0xNi03LjE2Nzk2OS0xNi0xNnM3LjE2Nzk2OS0xNiAxNi0xNmgzNTJjOC44MzIwMzEgMCAxNiA3LjE2Nzk2OSAxNiAxNnMtNy4xNjc5NjkgMTYtMTYgMTZ6bTAgMCIgZmlsbD0iIzAwMDAwMCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCI+PC9wYXRoPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0ibTM2OCAyNzcuMzMyMDMxaC0zNTJjLTguODMyMDMxIDAtMTYtNy4xNjc5NjktMTYtMTZzNy4xNjc5NjktMTYgMTYtMTZoMzUyYzguODMyMDMxIDAgMTYgNy4xNjc5NjkgMTYgMTZzLTcuMTY3OTY5IDE2LTE2IDE2em0wIDAiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiPjwvcGF0aD48L2c+PC9zdmc+" />
+                  </i>
+                </label>
+                <ul class="main-menu">
+                  <li class="menu-item"><a href="index.html">Inicio</a></li>
+                  <li class="menu-item"><a href="menu.html">Menú</a></li>
+                  <li class="menu-item"><a href="index.html#presentation">Información</a></li>                    
+                </ul>
+                <button class="agregar-principal" onclick="abrirCarrito()">
+                    <span class="material-symbols-outlined">add_shopping_cart</span>
+                    <span class="contador-principal"></span>
+                </button>
+              </nav>
+            </div>
+          </div>
+        
+    </header>
+    <main>
+        <aside class="Carrito-compras">
+            <div class="header-carrito">
+                <h1 class="titulo-carrito">Carrito de compras</h1>
+                <button class="Vaciar" onclick="vaciar_carrito()">
+                    <span class="material-symbols-outlined">
+                        delete
+                        </span>
+                </button>
+                <button class="cerrar-carrito" onclick="cerrarCarrito()">
+                    <span class="material-symbols-outlined">close</span> 
+                </button>   
+            </div>
+            <div class="cart-content">
+                <!-- Cart items will be listed here -->
+                <ul class="cart-items"></ul>
+                <!-- Total count and close button -->
+            </div>
+            <div class="productos-carrito">
+                <div class="producto" id="mock">
+                    <h4 class="nombre-producto"></h4>
+                    <span class="cantidad">
+                        <p>Cantidad: </p>
+                        <button>+</button>
+                        <span class="cantidad-producto">-</span>
+                        <button>-</button>
+                    </span>  
+                    <p>Precio: </p>
+                    <span class="precio"></span>
+                    <button class="eliminar"><span class="material-symbols-outlined">
+                        delete
+                        </span></button>
+                </div>
+            </div>
+                <div class="total-carrito">
+                    <div class="datos-carrito">
+                        <div class="subtotal">
+                            <h4>Subtotal</h4>
+                            <span class="subtotal"></span>
+                            <input type="hidden" name="subtotal" id="input-subtotal">
+                        </div>
+                        <div class="envio">
+                            <h4>Delivery</h4>
+                            <span class="valor-envio">Por calcular</span>
+                            <input type="hidden" name="delivery" id="input-delivery">
+                        </div>
+                        <div class="total">
+                            <h4>Total</h4>
+                            <span class="total"></span>
+                            <input type="hidden" name="total" id="input-total">
+                        </div>
+                    </div>        
+                    <button class="boton-pagar">Ir a pagar</button>
+                </div>
+        </aside>
+        <div class="parent">
+            <div class="div1">
+                <h1>Entradas</h1>
+                <div class="Nombres1">
+                    <div>
+                        <h2>Carpaccio veneciano
+                            <button class="agregar" id="Carpaccio-veneciano" onclick="agregaraCarrito(event); agregarProducto('Carpaccio veneciano',40900);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Finas láminas de carne de res, aderezadas con aceite de oliva, limón, alcaparras y queso
+                                parmesano.</h4>
+                            <p class="precio">$40.900</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Croquetas de hongos
+                            <button class="agregar" id="Croquetas-de-hongos" onclick="agregaraCarrito(event);agregarProducto('Croquetas de hongos',32900);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Deliciosas croquetas crujientes por fuera y cremosas por dentro, rellenas de una mezcla
+                                de hongos salteados.</h4>
+                            <p class="precio">32.900</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Caprese de burrata
+                            <button class="agregar" id="Caprese-de-burrata" onclick="agregaraCarrito(event);agregarProducto('Caprese de burrata',49900);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Una ensalada fresca con burrata cremosa, tomates maduros, albahaca fresca y un toque de
+                                aceite de oliva y balsámico.</h4>
+                            <p class="precio">$49.900</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Tabla de quesos
+                            <button class="agregar" id="Tabla-de-quesos" onclick="agregaraCarrito(event);agregarProducto('Tabla de quesos',49900);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Una selección variada de quesos, acompañada de frutas, nueces y mermeladas, perfecta
+                                para compartir.</h4>
+                            <p class="precio">$49.900</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="img-div1">
+                <img class="image1-divImage1" src="img/CARPACCIO.jpg" alt="Carpaccio veneciano"> <span
+                    class="overlay">Carpaccio veneciano</span>
+                <img class="image2-divImage1" src="img/CROQUETA DE HONGOS.jpg" alt="Croquetas de hongos"> <span
+                    class="overlay">Croquetas de hongos</span>
+                <img class="image3-divImage1" src="img/CAPRESE DE BURRATA.jpg" alt="Caprese de burrata"> <span
+                    class="overlay">Caprese de burrata</span>
+                <img class="image4-divImage1" src="img/TABLA DE QUESOS.jpg" alt="Tabla de quesos"> <span
+                    class="overlay">Tabla de quesos</span>
+            </div>
+
+            <div class="div2">
+                <h1>Platos fuertes</h1>
+                <div class="Nombres2">
+                    <div>
+                        <h2>Ravioli de maiz dulce y queso ricotta
+                            <button class="agregar" id="Ravioli-de-maiz-dulce-y-queso-ricotta" onclick="agregaraCarrito(event);agregarProducto('Ravioli de maiz dulce y queso ricotta',41900);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Pasta rellena de una mezcla suave de maíz dulce y queso ricotta, servida con una salsa
+                                ligera.</h4>
+                            <p class="precio">$41.900</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Tortelloni de cangrejo
+                            <button class="agregar" id="Tortelloni-de-cangrejo" onclick="agregaraCarrito(event);agregarProducto('Tortelloni de cangrejo',59900);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Pasta rellena de carne de cangrejo, acompañada de una salsa cremosa que realza su sabor.
+                            </h4>
+                            <p class="precio">$59.900</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Capelletti de queso fontina
+                            <button class="agregar" id="Capelletti-de-queso-fontina" onclick="agregaraCarrito(event);agregarProducto('Capelletti de queso fontina',47900);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Pequeñas pastas rellenas de queso fontina, servidas con una salsa de mantequilla y
+                                salvia.</h4>
+                            <p class="precio">$47.900</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Tortelli Tartufo
+                            <button class="agregar" id="Tortelli-Tartufo" onclick="agregaraCarrito(event);agregarProducto('Tortelli Tartufo',84900);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Pasta rellena de trufa, con un sabor intenso y terroso, servida con una salsa de crema y
+                                trufa.</h4>
+                            <p class="precio">$84.900</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="img-div2">
+                <img class="imagen-divImage2" src="img/RAVIOLIS DE MAIZ DULCE Y QUESO RICCOTA.jpg"
+                    alt="Ravioli de maiz dulce y queso ricotta">
+                <span class="overlay">Ravioli de maiz dulce y queso ricotta</span>
+                <img class="imagen-divImage2" src="img/TORTELLINI DE CANGREJO.jpg" alt="Tortelloni de cangrejo">
+                <span class="overlay">Tortelloni de cangrejo</span>
+                <img class="imagen-divImage2" src="img/CAPPELLETTI DE QUESO FONTINA.jpg"
+                    alt="Capelletti de queso fontina">
+                <span class="overlay">Capelletti de queso fontina</span>
+                <img class="imagen-divImage2" src="img/TROTELLI TARTUFO.jpg" alt="Tortelli Tartufo">
+                <span class="overlay">Tortelli Tartufo</span>
+            </div>
+            <div class="div3">
+                <h1>Postres</h1>
+                <div class="Nombres3">
+                    <div>
+                        <h2>Tiramisú
+                            <button class="agregar" id="Tiramisú" onclick="agregaraCarrito(event);agregarProducto('Tiramisú',31900);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Un clásico postre italiano hecho con capas de bizcocho empapado en café, crema de
+                                mascarpone y cacao en polvo.</h4>
+                            <p class="precio">$31,900</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Pie de limón
+                            <button class="agregar" id="Pie-de-limón" onclick="agregaraCarrito(event);agregarProducto('Pie de limón',30000);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Una tarta con una base crujiente, rellena de una crema de limón ácida y cubierta con
+                                merengue.</h4>
+                            <p class="precio">$30,000</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Torta ópera
+                            <button class="agregar" id="Torta-ópera" onclick="agregaraCarrito(event);agregarProducto('Torta ópera',40000);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Un elegante pastel de capas de bizcocho de almendra, crema de café y ganache de
+                                chocolate.</h4>
+                            <p class="precio">$40,000</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Tarta de manzana
+                            <button class="agregar" id="Tarta-de-manzana" onclick="agregaraCarrito(event);agregarProducto('Tarta de manzana',38000);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Una tarta con una base de masa quebrada, rellena de manzanas caramelizadas y especias, a
+                                menudo servida con helado de vainilla.</h4>
+                            <p class="precio">$38,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="img-div3">
+
+                <img class="imagen-divImage3" src="img/TIRAMISU.jpg" alt="Tiramisú"> <span
+                    class="overlay">Tiramisu</span>
+                <img class="imagen-divImage3" src="img/PIE DE LIMON.jpg" alt="Pie de limón"> <span class="overlay">Pie
+                    de limon</span>
+                <img class="imagen-divImage3" src="img/TORTA OPERA.jpg" alt="Torta ópera"> <span class="overlay">Torta
+                    opera</span>
+                <img class="imagen-divImage3" src="img/TARTA DE MANZANA.jpg" alt="Tarta de manzana"> <span
+                    class="overlay">Tarta de manzana</span>
+            </div>
+            <div class="div4">
+                <h1>Bebidas frias</h1>
+                <div class="Nombres4">
+                    <div>
+                        <h2>Jugo de frutos amarillos
+                            <button class="agregar" id="Jugo-de-frutos-amarillos" onclick="agregaraCarrito(event);agregarProducto('Jugo de frutos amarillos',10900);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Mango,durazno y piña.</h4>
+                            <p class="precio">$10,900</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Jugos de frutos rojos
+                            <button class="agregar" id="Jugo-de-frutos-rojos" onclick="agregaraCarrito(event);agregarProducto('Jugos de frutos rojos',10900);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Fresas, frambuesas y arándanos.</h4>
+                            <p class="precio">$10,900</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Limonada de coco
+                            <button class="agregar" id="Limonada-de-coco" onclick="agregaraCarrito(event);agregarProducto('Limonada de coco',9900);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Mezcla de limón y leche de coco</h4>
+                            <p class="precio">$9,900</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Agua Manantial
+                            <button class="agregar" id="Agua-Manantial" onclick="agregaraCarrito(event);agregarProducto('Agua Manantial',8900);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Sin gas</h4>
+                            <p class="precio">$8,900</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="img-div4">
+                <!-- Aquí puedes agregar las imágenes de las Bebidas -->
+                <img class="imagen-divImage4" src="img/Juice frutos amarillos.jpg" alt="Jugo de frutos amarillos"> <span
+                    class="overlay">Jugo de frutos amarillos</span>
+                <img class="imagen-divImage4" src="img/Juice frutos rojos.jpg" alt="Jugo de frutos rojos"> <span
+                    class="overlay">Jugo de frutos rojos</span>
+                <img class="imagen-divImage4" src="img/Coco limonade.jpg" alt="Limonada de coco"> <span
+                    class="overlay">Limonada de coco</span>
+                <img class="imagen-divImage4" src="img/water.jpg" alt="Agua Manantial"> <span class="overlay">Agua
+                    Manantial</span>
+            </div>
+            <div class="div5">
+                <h1>Cóctel</h1>
+                <div class="Nombres5">
+                    <div>
+                        <h2>Solarium
+                            <button class="agregar" id="Solarium" onclick="agregaraCarrito(event);agregarProducto('Solarium',33000);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Ron 7 años,Aperit,limón,dulce de flor de jamica,hierbabuena y Fever Tree ginger beer
+                            </h4>
+                            <p class="precio">$33,000</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Il messicano
+                            <button class="agregar" id="Il-messicano" onclick="agregaraCarrito(event);agregarProducto('Il messicano',37000);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Don Julio Blanco,miel de agave,limón,uchuvas y tajín</h4>
+                            <p class="precio">$37,000</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Bellini rosso
+                            <button class="agregar" id="Bellini-rosso" onclick="agregaraCarrito(event);agregarProducto('Bellini rosso',36000);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Mezcal Union,reducción de fresas con naranja,limón y prosecco</h4>
+                            <p class="precio">$36,000</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Le moratto
+                            <button class="agregar" id="Le-moratto" onclick="agregaraCarrito(event);agregarProducto('Croquetas de hongos',36000);">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="contador"></span>
+                            </button>
+                        </h2>
+                        <div class="carrito">
+                            <h4>Destilado de feijoa,Vodka infusionado en té butterfly pea,licor marrasquino,limón y prosecco</h4>
+                            <p>$36,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="img-div5">
+                <!-- Aquí puedes agregar las imágenes de Cocteles -->
+                <img class="imagen-divImage5" src="img/Solarium Coctel.jpg" alt="Coctel Solarium"> <span
+                    class="overlay">Solarium</span>
+                <img class="imagen-divImage5" src="img/IL messicano.jpg" alt="IL messicano"> <span class="overlay">IL
+                    messicano</span>
+                <img class="imagen-divImage5" src="img/Bellini Rosso.jpg" alt="Bellini Rosso"> <span
+                    class="overlay">Bellini rosso</span>
+                <img class="imagen-divImage5" src="img/Le moratto.jpg" alt="Le moratto"> <span class="overlay">Le
+                    moratto</span>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
