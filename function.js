@@ -1,5 +1,5 @@
 const carrito = document.querySelector('.Carrito-compras');
-
+const apiUrl = 'https://script.google.com/macros/s/AKfycbwgSe35tOBtx8KPQhyx5OAXeEiRIyspWmmWwv02OqNwg2kWmYh0CrNxeJS0GtkLEPhHLA/exec';
 function abrirCarrito() {
     const carritoVisible = carrito.classList.contains('visible');
     const body = document.body;
@@ -249,3 +249,88 @@ function cerrarCarrito() {
 function irCaja() {
     window.location.href = 'caja.html';
 }
+
+ //nueva funcion para recibir los datos de la hoja de calculo y mostrarlos en el menu.
+
+function cargarProductos() {
+    fetch(apiUrl)
+      .then(response => response.json())  // Convierte la respuesta a JSON
+      .then(data => {
+        const productos = data.data;  // Accede a los productos desde la API
+        mostrarProductos(productos);  // Llama a la función para mostrar los productos en cada categoría
+      })
+      .catch(error => console.error('Error al cargar los productos:', error));
+}
+
+function mostrarProductos(productos){
+    const entradasElement = document.querySelector('.informacion_Entradas'); // Contenedor para Entradas
+    const entradasImagenes = document.querySelector('.img-entradas'); // Contenedor de imágenes para Entradas
+    
+    const platosFuertesElement = document.querySelector('.informacion_fuerte'); // Contenedor para Platos Fuertes
+    const platosFuertesImagenes = document.querySelector('.img-fuerte'); // Contenedor de imágenes para Platos Fuertes
+
+    const postresElement = document.querySelector('.informacion_postres'); // Contenedor para Postres
+    const postresImagenes = document.querySelector('.img-postres'); // Contenedor de imágenes para Postres
+
+    const bebidasElement = document.querySelector('.informacion_bebidas'); // Contenedor para Bebidas Frías
+    const bebidasImagenes = document.querySelector('.img-bebidas'); // Contenedor de imágenes para Bebidas Frías
+
+    const coctelesElement = document.querySelector('.informacion_cocteles'); // Contenedor para Cócteles
+    const coctelesImagenes = document.querySelector('.img-cocteles'); // Contenedor de imágenes para Cócteles
+
+    //Hay que recorrer todos los productos y categorizarlos.
+
+    productos.forEach(producto => {
+        // HTML para el bloque de producto
+        const productoHTML = `
+          <div>
+            <h2>${producto.Nombre}
+              <button class="agregar" id="${producto.Nombre.replace(/\s+/g, '-')}">
+                <span class="material-symbols-outlined">add_shopping_cart</span>
+                <span class="contador"></span>
+              </button>
+            </h2>
+            <div class="carrito">
+              <h4>${producto.Descripción}</h4>
+              <p class="precio">$${producto.Precio}</p>
+            </div>
+          </div>
+        `;
+
+        //Hay que agregar un HTML extra para insertar las imagenes del menu
+
+        const imagenHTML = `
+        <img class="imagen" src="${producto.Imagen}" alt="${producto.Nombre}">
+        <span class="overlay">${producto.Nombre}</span>
+        `;
+
+        //Ahora hay que categorizar los productos debido a que hay una gran cantidad de productos por categoria (Entrada, Plato fuerte, Postre, Bebida, Coctel)
+
+        switch (producto.Categoria) {
+            case 'Entrada':
+              entradasElement.innerHTML += productoHTML;
+              entradasImagenes.innerHTML += imagenHTML;
+              break;
+            case 'Fuerte':
+              platosFuertesElement.innerHTML += productoHTML;
+              platosFuertesImagenes.innerHTML += imagenHTML;
+              break;
+            case 'Postre':
+              postresElement.innerHTML += productoHTML;
+              postresImagenes.innerHTML += imagenHTML;
+              break;
+            case 'Bebidas frias':
+              bebidasElement.innerHTML += productoHTML;
+              bebidasImagenes.innerHTML += imagenHTML;
+              break;
+            case 'Coctel':
+              coctelesElement.innerHTML += productoHTML;
+              coctelesImagenes.innerHTML += imagenHTML;
+              break;
+            default:
+              console.error('Categoría no reconocida:', producto.Categoría);
+          }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', cargarProductos); // Cargar los productos al cargar la página (asincronía).
