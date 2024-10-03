@@ -98,12 +98,16 @@ function actualizarCantidad(nombre, incremento) {
             const precio = parseFloat(producto.querySelector('.precio').textContent.replace('Precio: $', ''));
             const precioTotal = nuevaCantidad * precio / cantidadActual;
             producto.querySelector('.precio').textContent = `Precio: $${precioTotal}`;
+
+            // Actualizar el valor en el formulario oculto
+            const inputCantidad = producto.querySelector('input[name="cantidad"]');
+            inputCantidad.value = nuevaCantidad;
         } else {
             eliminarProducto(producto);
         }
     }
 
-    // Actualizar contador y subtotales
+    // Actualizar contador de botones agregar
     actualizarContador(nombre);
     actualizarSubtotalYTotal();
 }
@@ -182,6 +186,12 @@ function vaciar_carrito() {
     actualizarSubtotalYTotal();
 }
 
+// Función para cerrar el carrito
+function cerrarCarrito() {
+    carrito.classList.remove('visible');
+    document.body.classList.remove('no-scroll');
+}
+
 // Función para cargar productos desde la API
 function cargarProductos() {
     fetch(apiUrl)
@@ -193,51 +203,73 @@ function cargarProductos() {
         .catch(error => console.error('Error al cargar los productos:', error));
 }
 
-// Función para mostrar productos desde la API
+// Función para mostrar productos desde la API con imágenes
 function mostrarProductos(productos) {
-    const entradasElement = document.querySelector('.informacion_Entradas');
-    const platosFuertesElement = document.querySelector('.informacion_fuerte');
-    const postresElement = document.querySelector('.informacion_postres');
-    const bebidasElement = document.querySelector('.informacion_bebidas');
-    const coctelesElement = document.querySelector('.informacion_cocteles');
+  const entradasElement = document.querySelector('.informacion_Entradas');
+  const entradasImagenes = document.querySelector('.img-entradas'); // Contenedor de imágenes para Entradas
+  
+  const platosFuertesElement = document.querySelector('.informacion_fuerte');
+  const platosFuertesImagenes = document.querySelector('.img-fuerte'); // Contenedor de imágenes para Platos Fuertes
 
-    productos.forEach(producto => {
-        const productoHTML = `
-            <div>
-                <h2>${producto.Nombre}
-                    <button class="agregar" id="${producto.Nombre.replace(/\s+/g, '-')}" onclick="agregarProducto('${producto.Nombre}', ${producto.Precio})">
-                        <span class="material-symbols-outlined">add_shopping_cart</span>
-                        <span class="contador"></span>
-                    </button>
-                </h2>
-                <div class="carrito">
-                    <h4>${producto.Descripción}</h4>
-                    <p class="precio">$${producto.Precio}</p>
-                </div>
-            </div>
-        `;
+  const postresElement = document.querySelector('.informacion_postres');
+  const postresImagenes = document.querySelector('.img-postres'); // Contenedor de imágenes para Postres
 
-        switch (producto.Categoria) {
-            case 'Entrada':
-                entradasElement.innerHTML += productoHTML;
-                break;
-            case 'Fuerte':
+  const bebidasElement = document.querySelector('.informacion_bebidas');
+  const bebidasImagenes = document.querySelector('.img-bebidas'); // Contenedor de imágenes para Bebidas
+
+  const coctelesElement = document.querySelector('.informacion_cocteles');
+  const coctelesImagenes = document.querySelector('.img-cocteles'); // Contenedor de imágenes para Cócteles
+
+  productos.forEach(producto => {
+      // Estructura HTML del producto con botón correctamente posicionado
+      const productoHTML = `
+        <div class="producto-container">
+          <h2>${producto.Nombre}</h2>
+          <div class="carrito">
+            <h4>${producto.Descripción}</h4>
+            <p class="precio">$${producto.Precio}</p>
+            <button class="agregar" id="${producto.Nombre.replace(/\s+/g, '-')}" onclick="agregarProducto('${producto.Nombre}', ${producto.Precio}, '${producto.Imagen}')">
+              <span class="material-symbols-outlined">add_shopping_cart</span>
+              <span class="contador"></span>
+            </button>
+          </div>
+        </div>
+      `;
+
+      // Imágenes de los productos solo se añaden a la galería de la derecha
+      const imagenHTML = `
+      <img class="imagen" src="${producto.Imagen}" alt="${producto.Nombre}">
+      <span class="overlay">${producto.Nombre}</span>
+      `;
+
+      // Asignar productos e imágenes según la categoría
+      switch (producto.Categoria) {
+          case 'Entrada':
+              entradasElement.innerHTML += productoHTML;
+              entradasImagenes.innerHTML += imagenHTML;
+              break;
+          case 'Fuerte':
               platosFuertesElement.innerHTML += productoHTML;
+              platosFuertesImagenes.innerHTML += imagenHTML;
               break;
           case 'Postre':
               postresElement.innerHTML += productoHTML;
+              postresImagenes.innerHTML += imagenHTML;
               break;
           case 'Bebidas frias':
               bebidasElement.innerHTML += productoHTML;
+              bebidasImagenes.innerHTML += imagenHTML;
               break;
           case 'Coctel':
               coctelesElement.innerHTML += productoHTML;
+              coctelesImagenes.innerHTML += imagenHTML;
               break;
           default:
               console.error('Categoría no reconocida:', producto.Categoria);
       }
   });
 }
+
 
 function irCaja() {
   const productos = [];
@@ -269,7 +301,6 @@ function irCaja() {
   // Enviar el formulario
   formularioPago.submit();
 }
-
 
 // Ejecutar la función al cargar la página para obtener los productos de la API
 document.addEventListener('DOMContentLoaded', cargarProductos);
