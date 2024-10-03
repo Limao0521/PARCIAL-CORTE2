@@ -1,24 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu Pasta di Nonna</title>
     <link rel="stylesheet" href="menuStyle.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
     <script src="function.js" defer></script>
 </head>
 
@@ -26,99 +17,79 @@
     <header class="main-header">
         <div class="header-wrap">
             <div class="wrap-logo-header">
-              <a class="logo-header">
-                <img class = "logo" src="img/logoSVG.svg">
-              </a>
+                <a class="logo-header">
+                    <img class="logo" src="img/logoSVG.svg">
+                </a>
             </div>
             <div class="wrap-nav-header">
-              <nav class="nav-header">
-                <input type="checkbox" id="check">
-                <label for="check" class="checkbtn">
-                  <i class="toggle-menu">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDM4NCAzODQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0ibTM2OCAxNTQuNjY3OTY5aC0zNTJjLTguODMyMDMxIDAtMTYtNy4xNjc5NjktMTYtMTZzNy4xNjc5NjktMTYgMTYtMTZoMzUyYzguODMyMDMxIDAgMTYgNy4xNjc5NjkgMTYgMTZzLTcuMTY3OTY5IDE2LTE2IDE2em0wIDAiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiPjwvcGF0aD48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGQ9Im0zNjggMzJoLTM1MmMtOC44MzIwMzEgMC0xNi03LjE2Nzk2OS0xNi0xNnM3LjE2Nzk2OS0xNiAxNi0xNmgzNTJjOC44MzIwMzEgMCAxNiA3LjE2Nzk2OSAxNiAxNnMtNy4xNjc5NjkgMTYtMTYgMTZ6bTAgMCIgZmlsbD0iIzAwMDAwMCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCI+PC9wYXRoPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0ibTM2OCAyNzcuMzMyMDMxaC0zNTJjLTguODMyMDMxIDAtMTYtNy4xNjc5NjktMTYtMTZzNy4xNjc5NjktMTYgMTYtMTZoMzUyYzguODMyMDMxIDAgMTYgNy4xNjc5NjkgMTYgMTZzLTcuMTY3OTY5IDE2LTE2IDE2em0wIDAiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiPjwvcGF0aD48L2c+PC9zdmc+" />
-                  </i>
-                </label>
-                <ul class="main-menu">
-                  <li class="menu-item"><a href="index.html">Inicio</a></li>
-                  <li class="menu-item"><a href="menu.html">Menú</a></li>
-                  <li class="menu-item"><a href="index.html#presentation">Información</a></li>                    
-                </ul>
-                <button class="agregar-principal" onclick="abrirCarrito()">
-                    <span class="material-symbols-outlined">add_shopping_cart</span>
-                    <span class="contador-principal"></span>
-                </button>
-              </nav>
+                <nav class="nav-header">
+                    <input type="checkbox" id="check">
+                    <label for="check" class="checkbtn">
+                        <i class="toggle-menu">
+                            <img src="data:image/svg+xml;base64,..." />
+                        </i>
+                    </label>
+                    <ul class="main-menu">
+                        <li class="menu-item"><a href="index.html">Inicio</a></li>
+                        <li class="menu-item"><a href="menu.html">Menú</a></li>
+                        <li class="menu-item"><a href="index.html#presentation">Información</a></li>                    
+                    </ul>
+                    <button class="agregar-principal" onclick="abrirCarrito()">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        <span class="contador-principal"></span>
+                    </button>
+                </nav>
             </div>
-          </div>
-        
+        </div>
     </header>
+
     <main>
         <aside class="Carrito-compras">
             <div class="header-carrito">
                 <h1 class="titulo-carrito">Carrito de compras</h1>
                 <button class="Vaciar" onclick="vaciar_carrito()">
-                    <span class="material-symbols-outlined">
-                        delete
-                        </span>
+                    <span class="material-symbols-outlined">delete</span>
                 </button>
                 <button class="cerrar-carrito" onclick="cerrarCarrito()">
-                    <span class="material-symbols-outlined">close</span> 
+                    <span class="material-symbols-outlined">close</span>
                 </button>   
             </div>
             <div class="cart-content">
-                <!-- Cart items will be listed here -->
                 <ul class="cart-items"></ul>
-                <!-- Total count and close button -->
             </div>
-            <div class="productos-carrito">
-                <div class="producto" id="mock">
-                    <h4 class="nombre-producto"></h4>
-                    <span class="cantidad">
-                        <p>Cantidad: </p>
-                        <button>+</button>
-                        <span class="cantidad-producto">-</span>
-                        <button>-</button>
-                    </span>  
-                    <p>Precio: </p>
-                    <span class="precio"></span>
-                    <button class="eliminar"><span class="material-symbols-outlined">
-                        delete
-                        </span></button>
-                </div>
+            <div class="productos-carrito"></div>
+            <div class="total-carrito">
+                <div class="datos-carrito">
+                    <div class="subtotal">
+                        <h4>Subtotal</h4>
+                        <span class="subtotal"></span>
+                        <input type="hidden" name="subtotal" id="input-subtotal">
+                    </div>
+                    <div class="envio">
+                        <h4>Delivery</h4>
+                        <span class="valor-envio">Por calcular</span>
+                        <input type="hidden" name="delivery" id="input-delivery">
+                    </div>
+                    <div class="total">
+                        <h4>Total</h4>
+                        <span class="total"></span>
+                        <input type="hidden" name="total" id="input-total">
+                    </div>
+                </div>        
+                <button class="boton-pagar" onclick="irCaja()">Ir a pagar</button>
             </div>
-                <div class="total-carrito">
-                    <div class="datos-carrito">
-                        <div class="subtotal">
-                            <h4>Subtotal</h4>
-                            <span class="subtotal"></span>
-                            <input type="hidden" name="subtotal" id="input-subtotal">
-                        </div>
-                        <div class="envio">
-                            <h4>Delivery</h4>
-                            <span class="valor-envio">Por calcular</span>
-                            <input type="hidden" name="delivery" id="input-delivery">
-                        </div>
-                        <div class="total">
-                            <h4>Total</h4>
-                            <span class="total"></span>
-                            <input type="hidden" name="total" id="input-total">
-                        </div>
-                    </div>        
-                    <button class="boton-pagar">Ir a pagar</button>
-                </div>
         </aside>
+
+        <form id="carrito-form" action="caja.html" method="POST">
+            <input type="hidden" name="productos" id="productos">
+        </form>
+
         <div class="parent">
-            <!-- Se esta dejando los contenedores necesarios para en el JS traer el contenido -->
-
-            <!--Contenedores de entrada-->
-
             <div class="entradas">
                 <h1>Entradas</h1>
                 <div class="informacion_Entradas"></div>
             </div>
             <div class="img-entradas"></div>
-
-            <!--Contenedores de platos fuertes-->
 
             <div class="fuerte">
                 <h1>Platos fuertes</h1>
@@ -126,23 +97,17 @@
             </div>
             <div class="img-fuerte"></div>
 
-            <!--Contenedores de postres-->
-
             <div class="postres">
                 <h1>Postres</h1>
                 <div class="informacion_postres"></div>
             </div>
             <div class="img-postres"></div>
 
-            <!--Contenedores de bebidas frias-->
-
             <div class="bebidas">
                 <h1>Bebidas frias</h1>
                 <div class="informacion_bebidas"></div>
             </div>
             <div class="img-bebidas"></div>
-
-            <!--Contenedores de cocteles-->
 
             <div class="cocteles">
                 <h1>Cóctel</h1>
@@ -152,5 +117,4 @@
         </div>
     </main>
 </body>
-
 </html>
