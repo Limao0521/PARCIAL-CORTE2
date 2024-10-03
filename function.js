@@ -225,14 +225,15 @@ function mostrarProductos(productos) {
       // Estructura HTML del producto con botón correctamente posicionado
       const productoHTML = `
         <div class="producto-container">
-          <h2>${producto.Nombre}</h2>
+          <h2>${producto.Nombre}
+            <button class="agregar" id="${producto.Nombre.replace(/\s+/g, '-')}" onclick="agregarProducto('${producto.Nombre}', ${producto.Precio}, '${producto.Imagen}')">
+                <span class="material-symbols-outlined">add_shopping_cart</span>
+                <span class="contador"></span>
+            </button>
+            </h2>
           <div class="carrito">
             <h4>${producto.Descripción}</h4>
             <p class="precio">$${producto.Precio}</p>
-            <button class="agregar" id="${producto.Nombre.replace(/\s+/g, '-')}" onclick="agregarProducto('${producto.Nombre}', ${producto.Precio}, '${producto.Imagen}')">
-              <span class="material-symbols-outlined">add_shopping_cart</span>
-              <span class="contador"></span>
-            </button>
           </div>
         </div>
       `;
