@@ -1,5 +1,5 @@
 const carrito = document.querySelector('.Carrito-compras');
-const apiUrl = 'https://script.google.com/macros/s/AKfycbwgSe35tOBtx8KPQhyx5OAXeEiRIyspWmmWwv02OqNwg2kWmYh0CrNxeJS0GtkLEPhHLA/exec';
+const apiUrl = 'https://script.google.com/macros/s/AKfycbxQjRuGiSDBJU7eYyVY4uNw6lYWxITsiNyVyzWbAQW_1he_dG8cQ1IFj0fS1n0BxDxWbQ/exec';
 
 // Función para abrir y cerrar el carrito
 function abrirCarrito() {
@@ -204,6 +204,7 @@ function cargarProductos() {
 }
 
 // Función para mostrar productos desde la API con imágenes
+
 function mostrarProductos(productos) {
   const entradasElement = document.querySelector('.informacion_Entradas');
   const entradasImagenes = document.querySelector('.img-entradas'); // Contenedor de imágenes para Entradas

@@ -222,6 +222,7 @@ input#check{
     width: 100%;
     height: 200px;
     object-fit: cover;
+    overflow: hidden;
     display: block;
     transition: transform 0.3s ease, opacity 0.3s ease;
     border-radius: var(--border-radius-img);
@@ -864,33 +865,33 @@ p {
     display: none;
 }
 
-.div1 h4{
+.entradas h4{
     font-size: 1rem;
 }
-.div1 h2{
+.entradas h2{
     font-size: 1.5rem;
 }
-.div2 h4{
+.fuerte h4{
     font-size: 1rem;
 }
-.div2 h2{
+.fuerte h2{
     font-size: 1.5rem;
 }
-.div3 h4{
+.postres h4{
     font-size: 1rem;
 }
-.div3 h2{
+.postres h2{
     font-size: 1.5rem;
 }
-.div4 h4{
+.bebidas h4{
     font-size: 1rem;
 }
-.div4 h2{
+.bebidas h2{
     font-size: 1.5rem;
 }
-.div5 h4{
+.cocteles h4{
     font-size: 1rem;
 }
-.div5 h2{
+.cocteles h2{
     font-size: 1.5rem;
 }
