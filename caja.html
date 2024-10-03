@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caja Virtual</title>
     <link rel="stylesheet" href="cajaStyle.css">
+    <script src="function.js" defer></script>
 </head>
 
 <body>
@@ -32,41 +33,40 @@
         <section class="caja-virtual-section">
             <h1>Caja Virtual</h1>
             <form class="formulario-caja-virtual" id="formulario-pedido">
-              <div class="form-group-caja">
-                <label for="nombre">Nombre del Cliente:</label>
-                <input type="text" id="nombre" name="nombre">
-              </div>
-              <div class="form-group-caja">
-                <label for="telefono">Teléfono del Cliente:</label>
-                <input type="text" id="telefono" name="telefono">
-              </div>
-              <div class="form-group-caja">
-                <label for="direccion">Dirección del Cliente:</label>
-                <textarea id="direccion" name="direccion"></textarea>
-              </div>
-              <div class="form-group-caja">
-                <label for="productos">Productos del Pedido:</label>
-                <table id="tabla-productos" class="tabla-productos">
-                    <thead>
-                        <tr>
-                            <th>Producto</th>
-                            <th>Cantidad</th>
-                            <th>Precio</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Aquí se insertarán los productos traídos desde la API -->
-                    </tbody>
-                </table>
-            </div>
-            
-                <label for="total">Total del Pedido:</label>
-                <input type="text" id="total" name="total">
-              </div>
-              <button type="submit" class="boton-caja">Confirmar Pedido</button>
+                <div class="form-group-caja">
+                    <label for="nombre">Nombre del Cliente:</label>
+                    <input type="text" id="nombre" name="nombre">
+                </div>
+                <div class="form-group-caja">
+                    <label for="telefono">Teléfono del Cliente:</label>
+                    <input type="text" id="telefono" name="telefono">
+                </div>
+                <div class="form-group-caja">
+                    <label for="direccion">Dirección del Cliente:</label>
+                    <textarea id="direccion" name="direccion"></textarea>
+                </div>
+                <div class="form-group-caja">
+                    <label for="productos">Productos del Pedido:</label>
+                    <table id="tabla-productos" class="tabla-productos">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody class="productos">
+                            <!-- Aquí se insertarán los productos traídos desde la API -->
+                        </tbody>
+                    </table>
+                </div>
+                    <label for="total">Total del Pedido:</label>
+                    <span id="total" class="total-pedido"></span>
+                </div>
+                <button type="submit" class="boton-caja">Confirmar Pedido</button>
             </form>
-          </section>
-          
+        </section>
+
     </main>
 
     <footer>

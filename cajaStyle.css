@@ -200,3 +200,8 @@ footer {
 .tabla-productos tr:hover {
     background-color: #f1f1f1;
 }
+.total-pedido {
+  font-weight: bold;
+  color: #6a8e38; /* Mismo color verde de los botones */
+  margin-left: 10px;
+}
