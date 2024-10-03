@@ -1,198 +1,202 @@
-/* From Uiverse.io by mobinkakei */ 
-#wifi-loader {
-    --background: #62abff;
-    --front-color: #4f29f0;
-    --back-color: #c3c8de;
-    --text-color: #414856;
-    width: 64px;
-    height: 64px;
-    border-radius: 50px;
-    position: relative;
+/* General Styles for Caja Virtual */
+body {
+    font-family: 'Alegreya', serif; /* Tipografía similar */
+    background-color: #f9f7f4; /* Fondo suave */
+    color: #333; /* Color de texto general */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #6a8e38; /* Color de fondo del header */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.header-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.wrap-logo-header img {
+    height: 120px; /* Tamaño del logo */
+}
+
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-header ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav-header ul li {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.nav-header ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+}
+
+.nav-header ul li a:hover {
+    background-color: #8ab55b; /* Cambio de color al pasar el ratón */
+    border-radius: 5px;
+}
+
+.main-header .agregar-principal {
+    color: #fff;
+    background-color: #6a8e38;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Caja Virtual: Sección principal */
+.caja-virtual-section {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 50px auto;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 5px;
+    font-family: 'Alegreya', serif; /* Tipografía similar */
+}
+
+.caja-virtual-section h1 {
+    color: #6a8e38; /* Color del título */
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el formulario */
+.formulario-caja-virtual {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group-caja {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Estilo de las etiquetas (labels) */
+.form-group-caja label {
+    color: #4a4a4a;
+    font-size: 1.1rem;
+}
+
+/* Estilo de los inputs y textareas */
+.form-group-caja input,
+.form-group-caja textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #6a8e38;
+    font-family: 'Alegreya', serif;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    color: #4a4a4a;
+}
+
+.form-group-caja input:focus,
+.form-group-caja textarea:focus {
+    border-color: #8ab55b; /* Resalta el borde cuando el campo está en foco */
+    outline: none;
+}
+
+/* Estilo del botón principal para confirmar el pedido */
+.boton-caja {
+    background-color: #6a8e38;
+    color: #fff;
+    padding: 15px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton-caja:hover {
+    background-color: #8ab55b; /* Color de hover del botón */
+    transform: scale(1.05); /* Efecto hover para resaltar el botón */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #f4f4f4;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+.wrap-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
-  }
-  
-  #wifi-loader svg {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #wifi-loader svg circle {
-    position: absolute;
-    fill: none;
-    stroke-width: 6px;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transform: rotate(-100deg);
-    transform-origin: center;
-  }
-  
-  #wifi-loader svg circle.back {
-    stroke: var(--back-color);
-  }
-  
-  #wifi-loader svg circle.front {
-    stroke: var(--front-color);
-  }
-  
-  #wifi-loader svg.circle-outer {
-    height: 86px;
-    width: 86px;
-  }
-  
-  #wifi-loader svg.circle-outer circle {
-    stroke-dasharray: 62.75 188.25;
-  }
-  
-  #wifi-loader svg.circle-outer circle.back {
-    animation: circle-outer135 1.8s ease infinite 0.3s;
-  }
-  
-  #wifi-loader svg.circle-outer circle.front {
-    animation: circle-outer135 1.8s ease infinite 0.15s;
-  }
-  
-  #wifi-loader svg.circle-middle {
-    height: 60px;
-    width: 60px;
-  }
-  
-  #wifi-loader svg.circle-middle circle {
-    stroke-dasharray: 42.5 127.5;
-  }
-  
-  #wifi-loader svg.circle-middle circle.back {
-    animation: circle-middle6123 1.8s ease infinite 0.25s;
-  }
-  
-  #wifi-loader svg.circle-middle circle.front {
-    animation: circle-middle6123 1.8s ease infinite 0.1s;
-  }
-  
-  #wifi-loader svg.circle-inner {
-    height: 34px;
-    width: 34px;
-  }
-  
-  #wifi-loader svg.circle-inner circle {
-    stroke-dasharray: 22 66;
-  }
-  
-  #wifi-loader svg.circle-inner circle.back {
-    animation: circle-inner162 1.8s ease infinite 0.2s;
-  }
-  
-  #wifi-loader svg.circle-inner circle.front {
-    animation: circle-inner162 1.8s ease infinite 0.05s;
-  }
-  
-  #wifi-loader .text {
-    position: absolute;
-    bottom: -40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: lowercase;
-    font-weight: 500;
-    font-size: 14px;
-    letter-spacing: 0.2px;
-  }
-  
-  #wifi-loader .text::before, #wifi-loader .text::after {
-    content: attr(data-text);
-  }
-  
-  #wifi-loader .text::before {
-    color: var(--text-color);
-  }
-  
-  #wifi-loader .text::after {
-    color: var(--front-color);
-    animation: text-animation76 3.6s ease infinite;
-    position: absolute;
-    left: 0;
-  }
-  
-  @keyframes circle-outer135 {
-    0% {
-      stroke-dashoffset: 25;
-    }
-  
-    25% {
-      stroke-dashoffset: 0;
-    }
-  
-    65% {
-      stroke-dashoffset: 301;
-    }
-  
-    80% {
-      stroke-dashoffset: 276;
-    }
-  
-    100% {
-      stroke-dashoffset: 276;
-    }
-  }
-  
-  @keyframes circle-middle6123 {
-    0% {
-      stroke-dashoffset: 17;
-    }
-  
-    25% {
-      stroke-dashoffset: 0;
-    }
-  
-    65% {
-      stroke-dashoffset: 204;
-    }
-  
-    80% {
-      stroke-dashoffset: 187;
-    }
-  
-    100% {
-      stroke-dashoffset: 187;
-    }
-  }
-  
-  @keyframes circle-inner162 {
-    0% {
-      stroke-dashoffset: 9;
-    }
-  
-    25% {
-      stroke-dashoffset: 0;
-    }
-  
-    65% {
-      stroke-dashoffset: 106;
-    }
-  
-    80% {
-      stroke-dashoffset: 97;
-    }
-  
-    100% {
-      stroke-dashoffset: 97;
-    }
-  }
-  
-  @keyframes text-animation76 {
-    0% {
-      clip-path: inset(0 100% 0 0);
-    }
-  
-    50% {
-      clip-path: inset(0);
-    }
-  
-    100% {
-      clip-path: inset(0 0 0 100%);
-    }
-  }
-   
+}
+
+.element-footer {
+    margin: 0 20px;
+    text-align: center;
+}
+
+.element-footer h5 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #6a8e38;
+}
+
+.text-element-footer {
+    list-style-type: none;
+    padding: 0;
+}
+
+.text-element-footer li a {
+    color: #4a4a4a;
+    text-decoration: none;
+}
+
+.text-element-footer li a:hover {
+    color: #8ab55b; /* Hover en los links del footer */
+}
+/* Estilo para la tabla de productos */
+.tabla-productos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.tabla-productos th, .tabla-productos td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #6a8e38; /* Bordes de la tabla */
+}
+
+.tabla-productos th {
+    background-color: #6a8e38;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.tabla-productos td {
+    background-color: #f9f9f9;
+    font-size: 1rem;
+}
+
+/* Estilo para hover sobre las filas */
+.tabla-productos tr:hover {
+    background-color: #f1f1f1;
+}

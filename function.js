@@ -287,7 +287,7 @@ function irCaja() {
 
   // Crear un formulario para enviar a la página caja.html
   const formularioPago = document.createElement('form');
-  formularioPago.method = 'GET';
+  formularioPago.method = 'POST';
   formularioPago.action = 'caja.html';
 
   const inputProductos = document.createElement('input');

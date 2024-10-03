@@ -1,11 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Caja Virtual</title>
+    <link rel="stylesheet" href="cajaStyle.css">
 </head>
+
 <body>
-    
+    <header class="main-header">
+        <div class="header-wrap">
+            <div class="wrap-logo-header">
+                <a href="index.html" class="logo-header">
+                    <img class="logo" src="img/logoSVG.svg" alt="Logo del Restaurante">
+                </a>
+            </div>
+            <div class="wrap-nav-header">
+                <nav class="nav-header">
+                    <ul class="main-menu">
+                        <li class="menu-item"><a href="index.html">Inicio</a></li>
+                        <li class="menu-item"><a href="menu.html">Menú</a></li>
+                        <li class="menu-item"><a href="info.html">Información</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="caja-virtual-section">
+            <h1>Caja Virtual</h1>
+            <form class="formulario-caja-virtual" id="formulario-pedido">
+              <div class="form-group-caja">
+                <label for="nombre">Nombre del Cliente:</label>
+                <input type="text" id="nombre" name="nombre">
+              </div>
+              <div class="form-group-caja">
+                <label for="telefono">Teléfono del Cliente:</label>
+                <input type="text" id="telefono" name="telefono">
+              </div>
+              <div class="form-group-caja">
+                <label for="direccion">Dirección del Cliente:</label>
+                <textarea id="direccion" name="direccion"></textarea>
+              </div>
+              <div class="form-group-caja">
+                <label for="productos">Productos del Pedido:</label>
+                <table id="tabla-productos" class="tabla-productos">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí se insertarán los productos traídos desde la API -->
+                    </tbody>
+                </table>
+            </div>
+            
+                <label for="total">Total del Pedido:</label>
+                <input type="text" id="total" name="total">
+              </div>
+              <button type="submit" class="boton-caja">Confirmar Pedido</button>
+            </form>
+          </section>
+          
+    </main>
+
+    <footer>
+        <div class="wrap-footer">
+            <div class="element-footer">
+                <h5>Información</h5>
+                <ul class="text-element-footer">
+                    <li><a href="#">Política de privacidad</a></li>
+                    <li><a href="#">Términos de uso</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </body>
+
 </html>
