@@ -35,10 +35,9 @@ function agregarProducto(nombre, precio) {
       const nuevoCantidad = cantidadActual + 1;
       cantidadSpan.textContent = nuevoCantidad;
 
-      // Actualizar el precio total del producto en el carrito
+      // Muestra el precio del producto 
       const precioSpan = productoExistente.querySelector('.precio');
-      const precioTotal = nuevoCantidad * precio;
-      precioSpan.textContent = `Precio: $${precioTotal}`;
+      precioSpan.textContent = `Precio: $${precio}`;
 
       // Actualizar el valor en el formulario oculto
       const inputCantidad = productoExistente.querySelector('input[name="cantidad"]');
@@ -93,12 +92,7 @@ function actualizarCantidad(nombre, incremento) {
 
         if (nuevaCantidad > 0) {
             cantidadSpan.textContent = nuevaCantidad;
-
-            // Actualizar el precio total del producto en el carrito
-            const precio = parseFloat(producto.querySelector('.precio').textContent.replace('Precio: $', ''));
-            const precioTotal = nuevaCantidad * precio / cantidadActual;
-            producto.querySelector('.precio').textContent = `Precio: $${precioTotal}`;
-
+            
             // Actualizar el valor en el formulario oculto
             const inputCantidad = producto.querySelector('input[name="cantidad"]');
             inputCantidad.value = nuevaCantidad;
