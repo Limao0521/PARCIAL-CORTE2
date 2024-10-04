@@ -378,6 +378,7 @@ let datosFormulario;
 const formulario = document.querySelector('#formulario-pedido');
 const botonConfirmar = document.querySelector('.boton-caja');
 
+
 // Agregar evento de submit al formulario
 formulario.addEventListener('submit', (e) => {
   e.preventDefault(); // Prevenir que el formulario se envíe de forma tradicional
@@ -411,19 +412,44 @@ formulario.addEventListener('submit', (e) => {
     productosPedido,
     totalPedido,
   };
-  // Verificar el contenido de datosFormulario
-console.log('Datos del formulario:', datosFormulario);
-  // Enviar los datos a la API
+  // Verificar campos vacíos antes de enviar a la API
+  let valid = true;
+
+  if (!nombreCliente) {
+    document.querySelector('#nombre').style.borderColor = 'red';
+    valid = false;
+  }
+  if (!telefonoCliente) {
+    document.querySelector('#telefono').style.borderColor = 'red';
+    valid = false;
+  }
+  if (!direccionCliente) {
+    document.querySelector('#direccion').style.borderColor = 'red';
+    valid = false;
+  }
+
+  // Si los campos están vacíos, mostrar alerta y no enviar
+  if (!valid) {
+    alert("Por favor, llene todos los campos obligatorios.");
+    // Restablecer el borde al color original cuando el usuario hace clic en un campo
+    ['nombre', 'telefono', 'direccion'].forEach(id => {
+      document.querySelector(`#${id}`).addEventListener('focus', function () {
+        this.style.borderColor = '';
+      });
+    });
+  } else {
+    // Si todos los campos están llenos, enviar a la API
   const apiUrl = 'https://script.google.com/macros/s/AKfycbyylP5ZOTtXP9fEwVXReBYb8DCB5uvNZCEMU9HgJATTCHtniALpPISRN0MEYLhPJlHf/exec';
   fetch(apiUrl, {
     redirect: "follow",
     method: 'POST',
     headers: {
-        "Content-Type": "text/plain;charset=utf-8",
+      "Content-Type": "text/plain;charset=utf-8",
     },
     body: JSON.stringify(datosFormulario),
   })
     .then((response) => response.json())
     .then((data) => console.log(data))
     .catch((error) => console.error(error));
+  }
 });
