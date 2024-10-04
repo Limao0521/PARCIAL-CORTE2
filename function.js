@@ -1,5 +1,5 @@
 const carrito = document.querySelector('.Carrito-compras');
-const apiUrl = 'https://script.google.com/macros/s/AKfycbxQjRuGiSDBJU7eYyVY4uNw6lYWxITsiNyVyzWbAQW_1he_dG8cQ1IFj0fS1n0BxDxWbQ/exec';
+const apiUrl = 'https://script.google.com/macros/s/AKfycbyylP5ZOTtXP9fEwVXReBYb8DCB5uvNZCEMU9HgJATTCHtniALpPISRN0MEYLhPJlHf/exec';
 
 // Función para abrir y cerrar el carrito
 function abrirCarrito() {
@@ -302,7 +302,7 @@ function irCaja() {
 document.addEventListener('DOMContentLoaded', cargarProductos);
 
 document.addEventListener('DOMContentLoaded', function() {
-  const apiUrl = 'https://script.google.com/macros/s/AKfycbwgSe35tOBtx8KPQhyx5OAXeEiRIyspWmmWwv02OqNwg2kWmYh0CrNxeJS0GtkLEPhHLA/exec';
+  const apiUrl = 'https://script.google.com/macros/s/AKfycbyylP5ZOTtXP9fEwVXReBYb8DCB5uvNZCEMU9HgJATTCHtniALpPISRN0MEYLhPJlHf/exec';
 
   // Obtener los productos de la URL
   const urlParams = new URLSearchParams(window.location.search);
@@ -373,6 +373,57 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+// Obtener el formulario y el botón de confirmar pedido
+let datosFormulario;
+const formulario = document.querySelector('#formulario-pedido');
+const botonConfirmar = document.querySelector('.boton-caja');
 
+// Agregar evento de submit al formulario
+formulario.addEventListener('submit', (e) => {
+  e.preventDefault(); // Prevenir que el formulario se envíe de forma tradicional
 
+  // Obtener los datos del formulario
+  const nombreCliente = document.querySelector('#nombre').value;
+  const telefonoCliente = document.querySelector('#telefono').value;
+  const direccionCliente = document.querySelector('#direccion').value;
+  const productosPedido = [];
+  const productosTableBody = document.querySelector('.productos');
+  const filas = productosTableBody.querySelectorAll('tr');
 
+  filas.forEach((fila) => {
+    const nombreProducto = fila.querySelector('td:first-child').textContent;
+    const cantidadProducto = fila.querySelector('td:nth-child(2)').textContent;
+    const precioProducto = fila.querySelector('td:nth-child(3)').textContent.replace('$', '');
+    productosPedido.push({
+      nombre: nombreProducto,
+      cantidad: cantidadProducto,
+      precio: precioProducto,
+    });
+  });
+
+  const totalPedido = document.querySelector('#total').textContent.replace('$', '');
+
+  // Crear un objeto con los datos del formulario
+  datosFormulario = {
+    nombreCliente,
+    telefonoCliente,
+    direccionCliente,
+    productosPedido,
+    totalPedido,
+  };
+  // Verificar el contenido de datosFormulario
+console.log('Datos del formulario:', datosFormulario);
+  // Enviar los datos a la API
+  const apiUrl = 'https://script.google.com/macros/s/AKfycbyylP5ZOTtXP9fEwVXReBYb8DCB5uvNZCEMU9HgJATTCHtniALpPISRN0MEYLhPJlHf/exec';
+  fetch(apiUrl, {
+    redirect: "follow",
+    method: 'POST',
+    headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+    },
+    body: JSON.stringify(datosFormulario),
+  })
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error));
+});
