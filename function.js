@@ -1,5 +1,5 @@
 const carrito = document.querySelector('.Carrito-compras');
-const apiUrl = 'https://script.google.com/macros/s/AKfycbxQjRuGiSDBJU7eYyVY4uNw6lYWxITsiNyVyzWbAQW_1he_dG8cQ1IFj0fS1n0BxDxWbQ/exec';
+const apiUrl = 'https://script.google.com/macros/s/AKfycbyylP5ZOTtXP9fEwVXReBYb8DCB5uvNZCEMU9HgJATTCHtniALpPISRN0MEYLhPJlHf/exec';
 
 // Función para abrir y cerrar el carrito
 function abrirCarrito() {
@@ -35,10 +35,9 @@ function agregarProducto(nombre, precio) {
       const nuevoCantidad = cantidadActual + 1;
       cantidadSpan.textContent = nuevoCantidad;
 
-      // Actualizar el precio total del producto en el carrito
+      // Muestra el precio del producto 
       const precioSpan = productoExistente.querySelector('.precio');
-      const precioTotal = nuevoCantidad * precio;
-      precioSpan.textContent = `Precio: $${precioTotal}`;
+      precioSpan.textContent = `Precio: $${precio}`;
 
       // Actualizar el valor en el formulario oculto
       const inputCantidad = productoExistente.querySelector('input[name="cantidad"]');
@@ -93,12 +92,7 @@ function actualizarCantidad(nombre, incremento) {
 
         if (nuevaCantidad > 0) {
             cantidadSpan.textContent = nuevaCantidad;
-
-            // Actualizar el precio total del producto en el carrito
-            const precio = parseFloat(producto.querySelector('.precio').textContent.replace('Precio: $', ''));
-            const precioTotal = nuevaCantidad * precio / cantidadActual;
-            producto.querySelector('.precio').textContent = `Precio: $${precioTotal}`;
-
+            
             // Actualizar el valor en el formulario oculto
             const inputCantidad = producto.querySelector('input[name="cantidad"]');
             inputCantidad.value = nuevaCantidad;
@@ -289,7 +283,7 @@ function irCaja() {
 
   // Crear un formulario para enviar a la página caja.html
   const formularioPago = document.createElement('form');
-  formularioPago.method = 'POST';
+  formularioPago.method = 'GET';
   formularioPago.action = 'caja.html';
 
   const inputProductos = document.createElement('input');
@@ -306,3 +300,130 @@ function irCaja() {
 
 // Ejecutar la función al cargar la página para obtener los productos de la API
 document.addEventListener('DOMContentLoaded', cargarProductos);
+
+document.addEventListener('DOMContentLoaded', function() {
+  const apiUrl = 'https://script.google.com/macros/s/AKfycbyylP5ZOTtXP9fEwVXReBYb8DCB5uvNZCEMU9HgJATTCHtniALpPISRN0MEYLhPJlHf/exec';
+
+  // Obtener los productos de la URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const productosJSON = urlParams.get('productos');
+
+  // Variable para almacenar el total del pedido
+  let totalPedido = 0;
+
+  if (productosJSON) {
+      // Parsear la cadena JSON a un objeto
+      const productos = JSON.parse(productosJSON);
+      console.log('Productos:', productos);
+
+      // Hacer una solicitud a la API para obtener los detalles de los productos (incluido el precio)
+      fetch(apiUrl)
+          .then(response => response.json())  // Convierte la respuesta a JSON
+          .then(data => {
+              const productosAPI = data.data;  // Aquí están los productos traídos desde la API
+              console.log('Productos desde la API:', productosAPI);
+
+              // Insertar los productos en la tabla de productos con el precio calculado
+              const productosTableBody = document.querySelector('.productos'); // Acceder al tbody de la tabla
+
+              productos.forEach(producto => {
+                  // Buscar el producto en los datos de la API
+                  const productoAPI = productosAPI.find(p => p.Nombre === producto.nombre);
+
+                  if (productoAPI) {
+                      // Calcular el precio total según la cantidad
+                      const precioUnitario = productoAPI.Precio;
+                      const precioTotal = precioUnitario * producto.cantidad;
+
+                      // Sumar el precio al total del pedido
+                      totalPedido += precioTotal;
+
+                      // Crear una nueva fila para el producto
+                      const fila = document.createElement('tr');
+
+                      // Crear las celdas para el nombre, cantidad y precio
+                      const nombreCelda = document.createElement('td');
+                      nombreCelda.textContent = producto.nombre;
+
+                      const cantidadCelda = document.createElement('td');
+                      cantidadCelda.textContent = producto.cantidad;
+
+                      const precioCelda = document.createElement('td');
+                      precioCelda.textContent = `$${precioTotal.toFixed(2)}`; // Mostrar el precio total
+
+                      // Añadir las celdas a la fila
+                      fila.appendChild(nombreCelda);
+                      fila.appendChild(cantidadCelda);
+                      fila.appendChild(precioCelda);
+
+                      // Añadir la fila al cuerpo de la tabla
+                      productosTableBody.appendChild(fila);
+                  } else {
+                      console.error(`No se encontró el producto ${producto.nombre} en la API`);
+                  }
+              });
+
+              // Actualizar el span del total con la suma de los precios de los productos
+              const totalSpan = document.querySelector('#total');
+              totalSpan.textContent = `$${totalPedido.toFixed(2)}`; // Asignar el valor total formateado
+          })
+          .catch(error => console.error('Error al cargar los productos desde la API:', error));
+  } else {
+      console.log("No se encontraron productos en la URL.");
+  }
+});
+
+// Obtener el formulario y el botón de confirmar pedido
+let datosFormulario;
+const formulario = document.querySelector('#formulario-pedido');
+const botonConfirmar = document.querySelector('.boton-caja');
+
+// Agregar evento de submit al formulario
+formulario.addEventListener('submit', (e) => {
+  e.preventDefault(); // Prevenir que el formulario se envíe de forma tradicional
+
+  // Obtener los datos del formulario
+  const nombreCliente = document.querySelector('#nombre').value;
+  const telefonoCliente = document.querySelector('#telefono').value;
+  const direccionCliente = document.querySelector('#direccion').value;
+  const productosPedido = [];
+  const productosTableBody = document.querySelector('.productos');
+  const filas = productosTableBody.querySelectorAll('tr');
+
+  filas.forEach((fila) => {
+    const nombreProducto = fila.querySelector('td:first-child').textContent;
+    const cantidadProducto = fila.querySelector('td:nth-child(2)').textContent;
+    const precioProducto = fila.querySelector('td:nth-child(3)').textContent.replace('$', '');
+    productosPedido.push({
+      nombre: nombreProducto,
+      cantidad: cantidadProducto,
+      precio: precioProducto,
+    });
+  });
+
+  const totalPedido = document.querySelector('#total').textContent.replace('$', '');
+
+  // Crear un objeto con los datos del formulario
+  datosFormulario = {
+    nombreCliente,
+    telefonoCliente,
+    direccionCliente,
+    productosPedido,
+    totalPedido,
+  };
+  // Verificar el contenido de datosFormulario
+console.log('Datos del formulario:', datosFormulario);
+  // Enviar los datos a la API
+  const apiUrl = 'https://script.google.com/macros/s/AKfycbyylP5ZOTtXP9fEwVXReBYb8DCB5uvNZCEMU9HgJATTCHtniALpPISRN0MEYLhPJlHf/exec';
+  fetch(apiUrl, {
+    redirect: "follow",
+    method: 'POST',
+    headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+    },
+    body: JSON.stringify(datosFormulario),
+  })
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error));
+});
