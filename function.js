@@ -115,6 +115,8 @@ function eliminarProducto(productoDiv) {
         const asideCarrito = document.querySelector('aside');
         asideCarrito.style.display = 'none';
     }
+    const contadorPrincipal = document.querySelector('.contador-principal');
+    contadorPrincipal.textContent = '';
 
     // Actualizar subtotales
     actualizarSubtotalYTotal();
@@ -175,6 +177,8 @@ function actualizarSubtotalYTotal() {
 
 // Función para vaciar el carrito
 function vaciar_carrito() {
+    const contadorPrincipal = document.querySelector('.contador-principal');
+    contadorPrincipal.textContent = '';
     const contenedorCarrito = document.querySelector('.productos-carrito');
     contenedorCarrito.innerHTML = ''; // Vaciar el carrito
     actualizarSubtotalYTotal();
