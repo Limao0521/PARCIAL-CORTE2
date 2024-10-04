@@ -187,14 +187,20 @@ function cerrarCarrito() {
 }
 
 // Función para cargar productos desde la API
-function cargarProductos() {
-    fetch(apiUrl)
-        .then(response => response.json())  // Convierte la respuesta a JSON
-        .then(data => {
-            const productos = data.data;  // Accede a los productos desde la API
-            mostrarProductos(productos);  // Llama a la función para mostrar los productos en cada categoría
-        })
-        .catch(error => console.error('Error al cargar los productos:', error));
+async function cargarProductos() {
+  try {
+    // Espera a que la API responda y convierte la respuesta a JSON
+    const response = await fetch(apiUrl);
+    const data = await response.json(); // Accede a los datos
+
+    // Una vez que se tengan los datos, muestra los productos por categoría
+    console.log("Respuesta obtenida");
+    const productos = data.data;
+    mostrarProductos(productos);
+
+  } catch (error) {
+    console.error('Error al cargar los productos:', error); // Captura y muestra errores si los hay
+  }
 }
 
 // Función para mostrar productos desde la API con imágenes
