@@ -321,8 +321,6 @@ function irCaja() {
 document.addEventListener('DOMContentLoaded', cargarProductos);
 
 document.addEventListener('DOMContentLoaded', function() {
-  const apiUrl = 'https://script.google.com/macros/s/AKfycbyylP5ZOTtXP9fEwVXReBYb8DCB5uvNZCEMU9HgJATTCHtniALpPISRN0MEYLhPJlHf/exec';
-
   // Obtener los productos de la URL
   const urlParams = new URLSearchParams(window.location.search);
   const productosJSON = urlParams.get('productos');
@@ -464,7 +462,6 @@ formulario.addEventListener('submit', (e) => {
     });
   } else {
     // Si todos los campos están llenos, enviar a la API
-  const apiUrl = 'https://script.google.com/macros/s/AKfycbyylP5ZOTtXP9fEwVXReBYb8DCB5uvNZCEMU9HgJATTCHtniALpPISRN0MEYLhPJlHf/exec';
   fetch(apiUrl, {
     redirect: "follow",
     method: 'POST',
