@@ -457,5 +457,6 @@ formulario.addEventListener('submit', (e) => {
     .then((response) => response.json())
     .then((data) => console.log(data))
     .catch((error) => console.error(error));
+    alert("Su pedido ha sido creado con exito");
   }
 });
