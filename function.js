@@ -18,6 +18,15 @@ function abrirCarrito() {
 // Función para agregar productos al carrito
 function agregarProducto(nombre, precio) {
   const contenedorCarrito = document.querySelector('.productos-carrito');
+  const botonAgregar = document.querySelector(`#${nombre.replace(/\s+/g, '-')}`);
+
+  // Añadir la clase de animación
+  botonAgregar.classList.add('fantasia');
+
+  // Remover la clase después de 0.5s para que se pueda volver a aplicar en clics futuros
+  setTimeout(() => {
+    botonAgregar.classList.remove('fantasia');
+  }, 500);
 
   // Buscar si el producto ya existe en el carrito
   let productoExistente = null;
