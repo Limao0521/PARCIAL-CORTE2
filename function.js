@@ -331,12 +331,18 @@ document.addEventListener('DOMContentLoaded', function() {
                   const productoAPI = productosAPI.find(p => p.Nombre === producto.nombre);
 
                   if (productoAPI) {
-                      // Calcular el precio total según la cantidad
+                      // Definir el porcentaje de impuesto
+                      const impuesto = 0.16; // 16% de impuesto
+
+                      // Calcular el precio unitario y luego el total con la cantidad
                       const precioUnitario = productoAPI.Precio;
                       const precioTotal = precioUnitario * producto.cantidad;
 
-                      // Sumar el precio al total del pedido
-                      totalPedido += precioTotal;
+                      // Aplicar el impuesto al precio total
+                      const precioConImpuesto = precioTotal + (precioTotal * impuesto);
+
+                      // Sumar el precio con impuesto al total del pedido
+                      totalPedido += precioConImpuesto;
 
                       // Crear una nueva fila para el producto
                       const fila = document.createElement('tr');
